@@ -4,8 +4,7 @@ from logic import gen_pass
 import os
 import random
 
-# Замени 'TOKEN' на токен твоего бота
-# Этот токен ты получаешь от BotFather, чтобы бот мог работать
+
 bot = telebot.TeleBot(TOKEN)
 memes = os.listdir("./image")
 
@@ -14,15 +13,6 @@ users = {}
 decay = {"пластик":"до 1000 лет"}
 
 
-# @bot.message_handler(command=['collection'])
-# def send_collection(message):
-#     #нужна папка с картинками для их выселения.
-#     user = message.from_user.id
-#     p = random.choice
-#     if user not in users:  #если юзер не в козере
-#         users[user] = []   #список
-
-#     users[user].append(p)  #добавляется p (картинка рандом)
 
 
 @bot.message_handler(commands=['nick'])
@@ -87,5 +77,6 @@ def send_nick(message):
 @bot.message_handler(func=lambda message: True)
 def echo_all(message):
     bot.reply_to(message, message.text)
+
 
 bot.polling()
